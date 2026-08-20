@@ -99,3 +99,31 @@ $book = $result->fetch_assoc();
 
 </body>
 </html>
+
+<?php if ($book["stock"] > 0): ?>
+    <form method="POST" action="add_to_cart.php">
+        <input
+            type="hidden"
+            name="book_id"
+            value="<?= $book["id"]; ?>"
+        >
+
+        <label for="quantity">Quantity</label>
+
+        <input
+            type="number"
+            id="quantity"
+            name="quantity"
+            min="1"
+            max="<?= $book["stock"]; ?>"
+            value="1"
+            required
+        >
+
+        <button type="submit">
+            Add to Cart
+        </button>
+    </form>
+<?php else: ?>
+    <p>Out of stock.</p>
+<?php endif; ?>
