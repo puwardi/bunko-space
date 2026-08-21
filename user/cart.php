@@ -102,6 +102,9 @@ $total = 0;
             Rp<?= number_format($total, 0, ",", "."); ?>
         </h2>
 
+        <a href="checkout.php">
+            Checkout
+        </a>
     <?php endif; ?>
 
 </body>
